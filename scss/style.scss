@@ -1,0 +1,1053 @@
+/*
+Theme Name: Awesomes Design
+Author: KeenDevs
+Author URI: https://www.keendevs.com/
+Description: A Wordpress site by KeenDevs.
+Version: 1.0.2
+Text Domain: test
+*/
+
+// COLORS
+$white: #FFF;
+$black: #000;
+$base: #24964d;
+$secondary: #10191c;
+
+// FONTS
+$mont: "Mont", sans-serif;
+
+
+// MIXIN
+@import 'mixin';
+
+// ICON FONTS
+@import 'fonts';
+
+/***********************************
+BASIC STYLES
+***********************************/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body, div, span, img, 
+ol, ul, li, a, p, h1, h2, h3, 
+h4, h5, h6, option, legend, label, 
+table, th, td, tr, article, aside, 
+caption, figure, footer, header, hgroup, 
+mark, nav, section, time, audio, video {
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 100%;
+	overflow-y: scroll;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	color: #808080;
+	@include fontCal(400, 17px, 30px, 0);
+	font-family: $mont;
+}
+
+h3 {
+	@include fontCal(0, 26px, 32px, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #333333;
+	font-weight: 800;
+	margin-bottom: calRem(30px);
+}
+
+p {
+	margin-bottom: calRem(30px);
+}
+
+a {
+
+	&:hover, &:focus {
+		outline: 0;
+		text-decoration: none;
+	}
+}
+
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+section {
+	padding: calRem(50px) 0;
+}
+
+.btn, button {
+	color: $white;
+	display: inline-block;
+	background-color: $base;
+	border-radius: calRem(5px);
+	padding: calRem(15px) calRem(35px);
+	@include fontCal(700, 16px, 22px, 0);
+
+	&:hover, &:focus {
+		color: $white;
+		box-shadow: none;
+		background-color: #1a833f;
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: calRem(1246px);
+}
+
+.separator {
+	width: 100%;
+	display: block;
+	height: calRem(4px);
+	max-width: calRem(80px);
+	background-color: $base;
+}
+
+/***********************************
+HEADER STYLES
+***********************************/
+#header {
+	background-color: #f2f2f2;
+	
+	.top-bar {
+		padding: calRem(28.5px) 0;
+		background-color: $secondary;
+		@include transition(all 0.5s ease);
+
+		.navbar-brand {
+			color: $white;
+			@include fontCal(800, 22px, 22px, 0);
+			@include transition(all 0.3s ease);
+
+			img {
+				max-width: calRem(43px);
+				margin-right: calRem(12px);
+				 @include transition(all 0.3s ease);
+			}
+
+			&:hover {
+				color: $base;
+			}
+		}
+
+		.top-bar-right {
+
+			a {
+				color: $white;
+				position: relative;
+				white-space: nowrap;
+				@include fontCal(800, 24px, 26px, 0);
+				@include transition(all 0.3s ease);
+
+				&:hover, &:focus {
+					color: $base;
+				}
+			}
+
+			.separator {
+				min-width: calRem(40px);
+				margin-right: calRem(19px);
+			}
+		}
+	}
+
+	.navbar {
+		padding: calRem(30px) 0;
+		@include transition(all 0.5s ease);
+
+		.form-inline {
+			width: 100%;
+			position: relative;
+			max-width: calRem(300px);
+			border-bottom: calRem(4px) solid #bfbfbf;
+
+			&:after {
+				left: 0;
+				width: 0;
+				content: "";
+				position: absolute;
+				bottom: calRem(-4px);
+				height: calRem(4px);
+				background-color: #bfbfbf;
+				@include transition(all 0.3s ease);
+			}
+
+			.form-control {
+				border: 0;
+				width: 100%;
+				height: auto;
+				color: $black;
+				box-shadow: none;
+				background: transparent;
+				padding: calRem(5px) 0;
+				@include transition(all 0.3s ease);
+				@include fontCal(700, 18px, 22px, 0);
+				@include placeholder(#bfbfbf, 18px, 700);
+			}
+
+			&:focus-within {
+
+				.form-control {
+					@include placeholder($black, 18px, 700);
+				}
+
+				&:after {
+					width: 100%;
+					background-color: $base !important;
+				}
+			}
+		}
+
+		.navbar-nav {
+
+			> li {
+				margin-left: calRem(14px);
+				margin-right: calRem(14px);
+
+				> a {
+					display: block;
+					color: #333333;
+					position: relative;
+					padding: calRem(6px) 0;
+					@include fontCal(800, 18px, 22px, 0);
+					@include transition(all 0.3s ease);
+
+					&:before {
+						left: 0;
+						right: 0;
+						width: 0;
+						bottom: 0;
+						opacity: 0;
+						content: "";
+						margin: 0 auto;
+						position: absolute;
+						visibility: hidden;
+						height: calRem(4px);
+						background-color: $base;
+						@include transition(all 0.3s ease);
+					}
+				}
+
+				&.btn {
+					margin: 0;
+					padding: 0;
+					background: transparent;
+
+					> a {
+						color: $white;
+						background: $base;
+						border-radius: calRem(5px);
+						padding: calRem(12.7px) calRem(31.18px);
+						@include fontCal(700, 16px, 22px, 0);
+
+						&:before {
+							content: none;
+						}
+					}
+
+					&.active, &:hover, &:focus {
+						
+						a {
+							color: $white;
+							background: #1a833f;
+						}
+					}
+				}
+
+				&.active, &:hover, &:focus {
+					
+					> a {
+						color: $base;
+						background-color: transparent;
+
+						&:before {
+							opacity: 1;
+							width: 100%;
+							visibility: visible;
+						}
+					}
+				}
+
+				.dropdown-menu {
+				    background-color: $secondary;
+				    @include transition(all 0.5s ease);
+
+				    li {
+
+				    	a {
+				    		width: 100%;
+				    		color: $white;
+				    		display: block;
+				    		position: relative;
+				    		padding: calRem(10px) calRem(15px);
+							@include fontCal(700, 16px, 22px, 0);
+
+							&.dropdown-toggle {
+
+								&:after {
+									float: right;
+									margin-top: 7px;
+									transform: rotate(-90deg);
+								}
+							}
+				    	}
+
+				    	&.active, &:hover, &:focus {
+					
+							> a {
+								color: $white;
+								background-color: $base;
+							}
+						}
+				    }
+				}
+			}
+		}
+	}
+
+	&.header-fixed {
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1040;
+		position: fixed;
+
+		&.stop {
+			box-shadow: 0px 3px 12px rgba($black, 0.16);
+
+			.top-bar {
+				padding: calRem(15px) 0;
+			}
+
+			.navbar {
+				padding: calRem(20px) 0;
+			}	
+		}
+
+		+ .header-gutter {
+			height: 219px;
+			background: #f2f2f2;
+		}
+	}
+}
+
+
+/***********************************
+FOOTER STYLES
+***********************************/
+#footer {
+	padding: calRem(104px) 0;
+	background-color: $secondary;
+
+	.footer-brand {
+		color: $white;
+		@include fontCal(800, 22px, 22px, 0);
+		@include transition(all 0.3s ease);
+
+		img {
+			max-width: calRem(43px);
+			margin-right: calRem(12px);
+		}
+
+		&:hover {
+			color: $base;
+		}
+	}
+}
+
+/***********************************
+BANNER STYLES
+***********************************/
+.banner {
+	padding: 0;
+	position: relative;
+	background: #f2f2f2;
+
+	&:before {
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		content: "";
+		height: calRem(76px);
+		position: absolute;
+		background-color: $white;
+	}
+
+}
+
+.banner-slider-wrapper {
+	overflow: hidden;
+	position: relative;
+	border-radius: calRem(5px);
+	background-color: $secondary;
+}
+
+.slider-content {
+	height: 100%;
+	position: relative;
+	padding: calRem(50px);
+
+	article {
+
+		&.blog-post {
+
+			+ .blog-post {
+				margin-top: 0;
+			}
+
+			.entry-header {
+
+				.entry-meta {
+
+					.date {
+						color: #4c4c4c;
+					}
+
+					a {
+
+						.date {
+
+							&:hover, &:focus {
+								color: #bfbfbf;
+							}
+						}
+					}
+				}
+
+				.entry-title {
+					color: $white;
+					margin-bottom: calRem(30px);
+					@include fontCal(700, 32px, 40px, 0);
+				}
+
+				a {
+
+					.entry-title {
+
+						&:hover, &:focus {
+							color: $base;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.slick-list, .slick-track {
+		height: 100%;
+	}
+}
+
+.slider-images {
+	height: 100%;
+	position: relative;
+
+	.slide-item {
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.slick-list, .slick-track {
+		height: 100%;
+	}
+}
+
+.slider-controls {
+	width: calRem(128px);
+	right: calRem(65px);
+	bottom: calRem(50px);
+	height: calRem(54px);
+	overflow: hidden;
+	position: absolute;
+	border-radius: calRem(5px);
+	background-color: $base;
+
+	.arrow {
+		border: 0;
+		outline: 0;
+		width: 100%;
+		height: 100%;
+		box-shadow: none;
+		position: relative;
+		background-color: $base;
+		@include transition(all 0.3s ease);
+
+		&:before {
+			left: 0;
+			right: 0;
+			width: 0;
+			height: 0;
+			content: "";
+			margin: 0 auto;
+			position: absolute;
+			border: calRem(5px) solid transparent;
+		}
+
+		&.next {
+
+			&:before {
+				border-left-color: $white;
+			}
+		}
+
+		&.prev {
+
+			&:before {
+			 	border-right-color: $white;
+			}
+		}
+
+		&:hover {
+			background-color: #1a833f;
+		}
+	}
+}
+
+/***********************************
+CONTENT STYLES
+***********************************/
+.default-content {
+	padding: calRem(66px) 0 calRem(75px);
+
+	.content {
+
+		p {
+			font-weight: 700;
+			max-width: calRem(395px);
+		}
+
+		.separator {
+			margin-top: calRem(40px);
+		}
+	}
+}
+
+article {
+
+	&.blog-post {
+		display: block;
+		overflow: hidden;
+
+		+ .blog-post {
+			margin-top: calRem(46px);
+		}
+
+		.media {
+			overflow: hidden;
+			max-width: calRem(196px);
+			min-width: calRem(196px);
+			max-height: calRem(107px);
+			margin-right: calRem(34px);
+			border-radius: calRem(5px);
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				@include transition(all 0.3s ease);
+			}
+
+			a {
+				display: block;
+
+				img {
+
+					&:hover, &:focus {
+						@include transform(scale(1.2));
+					}
+				}
+			}
+		}
+
+		.entry-header {
+			overflow: hidden;
+
+			.entry-meta {
+
+				.date {
+					color: #bfbfbf;
+					display: inline;
+					margin: 0 0 calRem(5px);
+					@include fontCal(700, 16px, 16px, 0);
+					@include transition(all 0.3s ease);
+
+					img {
+						width: 1rem;
+						margin-right: calRem(12px);
+					}
+				}
+
+				a {
+
+					.date {
+
+						&:hover, &:focus {
+							color: #4c4c4c;
+						}
+					}
+				}
+			}
+
+			.entry-title {
+				margin: 0;
+				color: #4c4c4c;
+				@include fontCal(700, 17px, 28px, 0);
+				@include transition(all 0.3s ease);
+			}
+
+			a {
+
+				.entry-title {
+
+					&:hover, &:focus {
+						color: $black;
+					}
+				}
+			}
+		}
+	}
+}
+
+.page-header-title {
+	overflow: hidden;
+	margin-bottom: calRem(40px);
+	padding-bottom: calRem(20px);
+	border-bottom: calRem(1px) solid #bfbfbf;
+
+	.page-title {
+		margin: 0 !important;
+
+		span {
+			color: $base;
+		}
+	}
+}
+
+.posts-navigation {
+	margin-top: calRem(40px);
+	padding-top: calRem(20px);
+	border-top: calRem(1px) solid #bfbfbf;
+
+	.screen-reader-text {
+		@include fontCal(800, 24px, 32px, 0);
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		a {
+			color: $secondary;
+			font-weight: 800;
+			@include transition(all 0.3s ease);
+
+			&:hover, &:focus {
+				color: $base;
+			}
+		}
+	}
+}
+
+.comments-area {
+	margin-top: calRem(40px);
+}
+
+/***********************************
+DEFAULT STYLES
+***********************************/
+.default-page {
+	overflow: hidden;
+	padding: calRem(50px) 0;
+
+	.content {
+
+		h1, h2, h3, h4, h5, h6 {
+			margin-bottom: calRem(12px);
+		}
+
+		p {
+
+			a {
+				color: #808080;
+				font-weight: 700;
+				text-decoration: underline;
+
+				&:hover, &:focus {
+					color: $base;
+				}
+			}
+
+			small {
+				font-size: calRem(14px);
+				line-height: 25px;
+			}
+		}
+
+		.btn {
+			margin-bottom: calRem(20px);
+		}
+
+		ul {
+			list-style: none;
+
+			li {
+				position: relative;
+				padding-left: calRem(15px);
+
+				&:before {
+					left: 0;
+					content: "•";
+					color: $black;
+					position: absolute;
+				}
+			}
+		}
+
+		ol {
+			list-style: none;
+			counter-reset: section;
+
+			li {
+				position: relative;
+
+				&:before {
+					color: $black;
+					counter-increment: section; 
+					content: counters(section, ".") ". ";
+				}
+
+				ol {
+					margin-top: calRem(15px);
+					margin-left: calRem(15px);
+				}
+			}
+		}
+
+		ul, ol {
+			margin-bottom: calRem(22px);
+
+			li {
+				margin-bottom: calRem(12px);
+			}
+		}
+
+		.entry-footer {
+
+			a {
+				color: $secondary;
+				font-weight: 700;
+				text-decoration: underline;
+				@include transition(all 0.3s);
+
+				&:hover, &:focus {
+					color: $base;
+				}
+			}
+		}
+	}
+}
+
+.simple-hello-world {
+	padding-bottom: calRem(30px);
+}
+
+/***********************************
+404 STYLES
+***********************************/
+.error404 {
+
+	.error-404 {
+		
+		.page-header {
+		    width: 100%;
+		    margin-top: 0;
+		    margin-left: auto;
+		    margin-right: auto;
+			background: transparent;
+		    max-width: calRem(800px);
+			padding: 0 0 calRem(15px);
+		    margin-bottom: calRem(15px);
+			border-bottom: calRem(1px) solid $secondary;
+
+			&:after, &:before {
+				content: none;
+			}
+
+			.hero {
+				margin: 0;
+				color: $black;
+				font-weight: 900;
+				font-size: calRem(110px);
+				line-height: calRem(110px);
+			}
+
+			.page-title {
+				color: $black;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+/***********************************
+WOOCOMMERCE STYLES
+***********************************/
+.woocommerce {
+
+	.default-page {
+
+		.content {
+
+			ul {
+
+				li {
+
+					&:before {
+						content: none;
+					}
+				}
+			}
+		}
+	}
+
+	label {
+		width: 100%;
+		display: block;
+	}
+
+	.woocommerce-input-wrapper {
+	    display: block;
+	    width: 100%;
+	}
+
+	.col2-set {
+		margin-left: -15px;
+		margin-right: -15px;
+		margin-bottom: calRem(30px);
+
+		.col-1, .col-2 {
+		    width: 48%;
+		    float: left;
+		    max-width: 100%;
+		}
+	}
+}
+
+/***********************************
+WORDPRESS BASIC STYLES
+***********************************/
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+pre {
+	overflow: auto;
+	max-width: 100%;
+	background: #eee;
+	font-family: $mont;
+	padding: calRem(24px);
+	@include fontCal(400, 15px, 22px, 0);
+}
+
+img {
+	border-style: none;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 12px;
+	font-size: 0.75rem;
+	font-weight: 800;
+	line-height: 1;
+	padding: .6em 1em .4em;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+}
+
+button:active, button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+	border-color: #aaa #bbb #bbb;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+textarea {
+	width: 100%;
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+// ICON FONTS
+@import 'responsive';
