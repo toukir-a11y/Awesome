@@ -1,5 +1,5 @@
 
-<?php $new= get_field("top");?>	
+
 !doctype <html>
 <html lang="en">
 <head>
@@ -9,18 +9,19 @@
 	<?php wp_head();?>
 	</head>
 	<body>
+
 		<header id="header" class="header-fixed">
 			<nav class="top-bar">
 				<div class="container">
 					<div class="row">
 						<div class="col d-flex align-items-center justify-content-between">
-							<a class="navbar-brand d-flex align-items-center" href="#">
-						    	<img src="<?php echo $new['logo'];?>" width="30" height="30" alt="">
-						    	<?php echo $new['logo_title'];?>
+							<a class="navbar-brand d-flex align-items-center" href="<?php echo home_url("/");?>">
+						    	<img src="<?php the_field('logo','option');?>" width="30" height="30" alt="">
+						    	<?php the_field('title','option');?>
 						  	</a>
 
 							<div class="top-bar-right d-flex align-items-center">
-								<span class="separator"></span><a href="tel:+360 690 67 89"><?php echo $new['phone'];?></a>
+								<span class="separator"></span><a href="tel:+360 690 67 89"><?php the_field('number','option');?></a>
 							</div>
 						</div>
 					</div>
@@ -31,6 +32,8 @@
 				<div class="container">
 					
                 <?php get_search_form();?>
+
+				
                 
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="icon-bar"><span class="inner"></span></span>
@@ -52,12 +55,14 @@
                                     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                                     'walker'            => new WP_Bootstrap_Navwalker())
                                 );
-      ?>
-							<li><a href="#">Portfolio</a></li>
-							<li class="btn"><a href="#">Contact</a></li>
+				            ?>
+							
+								<li class="btn"><a href="#">Contact</a></li>
 						</ul>
 					</div>
 				</div>
 			</nav><!-- /navbar -->
 		</header>
+
+		
 
