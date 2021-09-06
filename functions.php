@@ -17,10 +17,10 @@ add_action ("after_setup_theme","theme_setup");
 
 function assets_load(){
 
-    wp_enqueue_style("Awesome",get_stylesheet_uri());
-    wp_enqueue_style("bootstrap",get_theme_file_uri("/css/bootstrap.min.css"));
     wp_enqueue_style("slick",get_theme_file_uri("/css//slick.min.css"));
     wp_enqueue_style("animate",get_theme_file_uri("/css//animate.css"));
+    wp_enqueue_style("bootstrap",get_theme_file_uri("/css/bootstrap.min.css"));
+    wp_enqueue_style( 'default-style', get_stylesheet_uri());
 
     wp_enqueue_script("code","//code.jquery.com/jquery-3.3.1.slim.min.js", "", "", true);
 
