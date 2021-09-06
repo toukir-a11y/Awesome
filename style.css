@@ -109,13 +109,15 @@ section {
 .btn, button {
   color: #FFF;
   display: inline-block;
-  background-color: #24964d;
+  background-color: #12d45d;
   border-radius: 0.3125rem;
   padding: 0.9375rem 2.1875rem;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.375;
 }
+
+
 .btn:hover, .btn:focus, button:hover, button:focus {
   color: #FFF;
   -webkit-box-shadow: none;
@@ -1332,4 +1334,5 @@ MEDIA QUERIES
   }
   
 }
+
 
