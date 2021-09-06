@@ -6,7 +6,9 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<?php wp_head();?>
+	<?php wp_head();
+	$header= get_field('header','option');
+	?>
 	</head>
 	<body>
 
@@ -16,12 +18,12 @@
 					<div class="row">
 						<div class="col d-flex align-items-center justify-content-between">
 							<a class="navbar-brand d-flex align-items-center" href="<?php echo home_url("/");?>">
-						    	<img src="<?php the_field('logo','option');?>" width="30" height="30" alt="">
-						    	<?php the_field('title','option');?>
+						    	<img src="<?php echo $header['logo'];?>" width="30" height="30" alt="">
+						    	<?php echo $header['logo_title'];?>
 						  	</a>
 
 							<div class="top-bar-right d-flex align-items-center">
-								<span class="separator"></span><a href="tel:+360 690 67 89"><?php the_field('number','option');?></a>
+								<span class="separator"></span><a href="tel:+360 690 67 89"><?php echo $header['phone'];?></a>
 							</div>
 						</div>
 					</div>
@@ -62,7 +64,11 @@
 					</div>
 				</div>
 			</nav><!-- /navbar -->
+			
 		</header>
 
 		
+	
+				
+	
 
