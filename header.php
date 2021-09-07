@@ -59,7 +59,7 @@
                                 );
 				            ?>
 							
-								<li class="btn"><a href="#">Contact</a></li>
+								<li class="btn"><a href="#"><?php echo $header['contact_button'];?></a></li>
 						</ul>
 					</div>
 				</div>
